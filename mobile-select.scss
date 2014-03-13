@@ -1,0 +1,61 @@
+.mh-mobile-select {
+	position: relative;
+	display: inline-block;
+
+	.mh-ms-overlay {
+		display: none;
+	}
+
+	ul {
+		margin: 0;
+
+		li {
+			list-style-type: none;
+		}
+	}
+
+	.mh-ms-selected {
+		ul {
+			margin-right: 20px;
+		}
+
+		.mh-ms-options {
+			display: table-cell;
+		}
+
+		.mh-ms-down {
+			width: 20px;
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+}
+
+
+/**
+ * The Overlay
+ */
+.mh-ms-overlay-background {
+	display: none;
+	background-color: rgba(0,0,0,0.7);
+	width: 100%;
+	z-index: 100;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.mh-ms-overlay-content {
+	display: none;
+	background-color: rgb(0,0,0);
+	color: white;
+	width: 90%;
+	z-index: 101;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+
+	li {
+		list-style-type: none;
+	}
+}

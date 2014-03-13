@@ -1,0 +1,51 @@
+.mh-mobile-select {
+  position: relative;
+  display: inline-block;
+}
+.mh-mobile-select .mh-ms-overlay {
+  display: none;
+}
+.mh-mobile-select ul {
+  margin: 0;
+}
+.mh-mobile-select ul li {
+  list-style-type: none;
+}
+.mh-mobile-select .mh-ms-selected ul {
+  margin-right: 20px;
+}
+.mh-mobile-select .mh-ms-selected .mh-ms-options {
+  display: table-cell;
+}
+.mh-mobile-select .mh-ms-selected .mh-ms-down {
+  width: 20px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/**
+ * The Overlay
+ */
+.mh-ms-overlay-background {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mh-ms-overlay-content {
+  display: none;
+  background-color: black;
+  color: white;
+  width: 90%;
+  z-index: 101;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+.mh-ms-overlay-content li {
+  list-style-type: none;
+}

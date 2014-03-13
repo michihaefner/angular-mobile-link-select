@@ -7,8 +7,8 @@ module.exports = function(grunt) {
     //Minify CSS files
     cssmin: {
       minify: {
-        src: 'mobile-select.css',
-        dest: 'mobile-select.min.css'
+        src: 'mobile-select-link.css',
+        dest: 'mobile-select-link.min.css'
       }
     },
 
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {                         // Dictionary of files 
-          'mobile-select.css': 'mobile-select.scss'
+          'mobile-select-link.css': 'mobile-select-link.scss'
         }
       }
     }

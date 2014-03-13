@@ -1,6 +1,6 @@
 console.log("myApp loaded");
 
-var app = angular.module('myApp', ['mh.mobile.linkSelect']);
+var app = angular.module('myApp', ['mh.mobile.selectLink']);
 
 app.controller("MainController", ['$scope', function($scope) {
   var msoptions = [

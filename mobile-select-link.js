@@ -1,4 +1,4 @@
-var mobileSelect = angular.module('mh.mobile.linkSelect', []);
+var mobileSelect = angular.module('mh.mobile.selectLink', []);
 
 var overlay = $('<div class="mh-ms-overlay-background">');
 var overlayContent = $('<div class="mh-ms-overlay-content">');
@@ -36,13 +36,13 @@ var mhMobileSelectController = function($scope, $element, $attrs) {
 };
 
 
-mobileSelect.directive('mhMobileSelect', function() {
+mobileSelect.directive('mhMobileSelectLink', function() {
 	return {
     restrict: 'A',
     scope: {
     	mslist: '='
     },
-    templateUrl: 'mobile-select.html',
+    templateUrl: 'mobile-select-link.html',
     controller: mhMobileSelectController,
     compile: function(element, attrs, transclude) {
     	// link function

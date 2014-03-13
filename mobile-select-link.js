@@ -1,13 +1,12 @@
 var mobileSelect = angular.module('mh.mobile.selectLink', []);
 
 var overlay = $('<div class="mh-ms-overlay-background">');
-var overlayContent = $('<div class="mh-ms-overlay-content">');
 
 
 /*
  * resize the popup
  */
-var resizeMobileSelect = function() {
+var resizeMobileSelect = function(overlayContent) {
 	var viewportWidth = $(window).width();
 	var viewportHeight = $(window).height();
 
@@ -30,8 +29,6 @@ var mhMobileSelectController = function($scope, $element, $attrs) {
 
   $scope.msselect = function(item) {
 		$scope.mslist.selected = item.id;
-
-
 	};
 };
 
@@ -45,32 +42,37 @@ mobileSelect.directive('mhMobileSelectLink', function() {
     templateUrl: 'mobile-select-link.html',
     controller: mhMobileSelectController,
     compile: function(element, attrs, transclude) {
+        var msOverlay = element.find(".mh-ms-overlay-content");
     	// link function
     	$(window).resize(function() {
-    		resizeMobileSelect();
+    		resizeMobileSelect(msOverlay);
     	});
 
 
     	return {
         pre: function preLink(scope, element, attrs, controller) { 
-        	$("body").append(overlay).append(overlayContent);
+        	$("body").append(overlay);
 
           
         },
         post: function postLink(scope, element, attrs, controller) { 
         	// add list items to the overlay
-        	var msOverlay = element.find(".mh-ms-overlay");
+        	
         	var msSelected = element.find(".mh-ms-selected");
+            msOverlay.css({
+                "position": "fixed",
+            });
+
+
 
         	// open the overlay
         	msSelected.on("click", function() {
-      			msOverlay.appendTo(overlayContent);
       			overlay.css({ "display": "block" });
-        		overlayContent.css({ "display": "block" });
-        		resizeMobileSelect();
+                msOverlay.css({ "display": "block" });
+        		resizeMobileSelect(msOverlay);
         	});     
 
-        	// close the overlay
+        	
         	msOverlay.on("click", function() {
       			closeOverlay();
         	});	
@@ -79,11 +81,11 @@ mobileSelect.directive('mhMobileSelectLink', function() {
         		closeOverlay();
         	});
 
+            // close the overlay
         	var closeOverlay = function() {
-						msOverlay.appendTo(element.children(".mh-ms-select"));
         		overlay.css({ "display": "none" });
-        		overlayContent.css({ "display": "none" });
-					}
+        		msOverlay.css({ "display": "none" });
+			}
 
       	  
 	      }

@@ -1,3 +1,10 @@
+@import "functions";
+
+$primary-color: rgb(44, 62, 80);
+$secondary-color: rgb(236, 240, 241);
+$overlay-bg: rgba(44, 62, 80, 0.8);
+$overlay-content-bg: rgb(236, 240, 241);
+
 .mh-mobile-select {
 	position: relative;
 	display: inline-block;
@@ -15,8 +22,20 @@
 	}
 
 	.mh-ms-selected {
+		background-color: $primary-color;
+		color: $secondary-color;
+
 		ul {
-			margin-right: 20px;
+			margin-right: rem-calc(20px);
+
+			li {
+				padding: {
+					top: rem-calc(4px);
+					bottom: rem-calc(5px);
+					left: rem-calc(5px);
+					right: rem-calc(5px);
+				}
+			}
 		}
 
 		.mh-ms-options {
@@ -24,7 +43,7 @@
 		}
 
 		.mh-ms-down {
-			width: 20px;
+			width: rem-calc(20px);
 			display: table-cell;
 			vertical-align: middle;
 		}
@@ -37,7 +56,7 @@
  */
 .mh-ms-overlay-background {
 	display: none;
-	background-color: rgba(0,0,0,0.7);
+	background-color: $overlay-bg;
 	width: 100%;
 	z-index: 100;
 	position: absolute;
@@ -47,7 +66,7 @@
 
 .mh-ms-overlay-content {
 	display: none;
-	background-color: rgb(0,0,0);
+	background-color: $overlay-content-bg;
 	color: white;
 	width: 90%;
 	z-index: 101;
@@ -55,7 +74,19 @@
 	top: 5%;
 	left: 5%;
 
-	li {
-		list-style-type: none;
+	ul {
+		margin: 0;
+
+		li {
+			list-style-type: none;
+			padding: {
+				top: rem-calc(4px);
+				bottom: rem-calc(5px);
+				left: rem-calc(5px);
+				right: rem-calc(5px);
+			}
+		}
 	}
+
+	
 }

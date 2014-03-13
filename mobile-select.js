@@ -67,6 +67,7 @@ mobileSelect.directive('mhMobileSelect', function() {
       			msOverlay.appendTo(overlayContent);
       			overlay.css({ "display": "block" });
         		overlayContent.css({ "display": "block" });
+        		resizeMobileSelect();
         	});     
 
         	// close the overlay
@@ -84,7 +85,7 @@ mobileSelect.directive('mhMobileSelect', function() {
         		overlayContent.css({ "display": "none" });
 					}
 
-      	  resizeMobileSelect();
+      	  
 	      }
     	}
 		}
